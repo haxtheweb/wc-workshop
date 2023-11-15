@@ -1,0 +1,88 @@
+import { LitElement, html, css } from 'lit';
+
+export class WcWorkshop extends LitElement {
+  static get properties() {
+    return {
+      title: { type: String },
+      loading: { type: Boolean, reflect: true },
+      items: { type: Array, },
+      value: { type: String },
+    };
+  }
+
+  static get styles() {
+    return css`
+      :host {
+        display: block;
+      }
+      details {
+        margin: 16px;
+        padding: 16px;
+        background-color: white;
+      }
+      summary {
+        font-size: 24px;
+        padding: 8px;
+      }
+      input {
+        font-size: 20px;
+        line-height: 40px;
+        width: 100%;
+      }
+    `;
+  }
+
+  constructor() {
+    super();
+    this.value = null;
+    this.title = 'My (awesome) Workshop';
+    this.loading = false;
+    this.items = [];
+  }
+
+  render() {
+    return html`
+    <h2>${this.title}</h2>
+    <details open>
+      <summary>Search inputs</summary>
+      <div>
+        <input id="input" placeholder="Search NASA images" @input="${this.inputChanged}" />
+      </div>
+    </details>
+    <div class="results">
+      ${this.items.map((item, index) => html`
+        <div>
+          ${item.data[0].title}
+        </div>
+      `)}
+    </div>
+    `;
+  }
+
+  inputChanged(e) {
+    this.value = this.shadowRoot.querySelector('#input').value;
+  }
+  // life cycle will run when anything defined in `properties` is modified
+  updated(changedProperties) {
+    // see if value changes from user input and is not empty
+    if (changedProperties.has('value') && this.value) {
+      this.updateResults(this.value);
+    }
+  }
+
+  updateResults(value) {
+    this.loading = true;
+    fetch(`https://images-api.nasa.gov/search?media_type=image&q=${value}`).then(d => d.ok ? d.json(): {}).then(data => {
+      if (data.collection) {
+        this.items = [];
+        this.items = data.collection.items;
+        this.loading = false;
+      }  
+    });
+  }
+
+  static get tag() {
+    return 'wc-workshop';
+  }
+}
+customElements.define(WcWorkshop.tag, WcWorkshop);
