@@ -115,6 +115,16 @@ import "@shoelace-style/shoelace/dist/components/carousel-item/carousel-item.js"
 ```
 - Read the docs for carousel and see if you can figure out how to wire it into the template to modify the work we've done!
 
+
+## Let's build this using vercel
+- Commit your changes `git add -A` then `git commit -m "working app"`
+- Push your code you've been working on up to github either using the desktop GUI or commandline `git push origin main`
+- go to https://vercel.com/ and connect this to your github account if you haven't already
+- Select `Add New...` -> `Project`
+- Select the `wc-workshop` project you've been working on
+- When setting this up click `Build and Output Settings` and change `Output Directory` to say `dist`
+- Hit Deploy and see if it works.. In a few minutes you should have a web address for what we've worked on today that you can share with others!
+
 ## I want more
 https://github.com/elmsln/lrnwebcomponents is a massive monorepo of elements that the HAX team has been working on for years to transform education, publishing and the web. I am always looking for students to do independent study work to learn how to build advanced web components by contributing to our efforts. One brick at a time we will build a better world.
 
