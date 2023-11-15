@@ -84,6 +84,7 @@ export class NasaImage extends LitElement {
 }
 customElements.define(NasaImage.tag, NasaImage);
 ```
+- Let's reference this new tag for use in our `wc-workshop` app
 - Let's add support for image source via a property
 - Let's add support for alt data
 - Let's add support for a visible title
@@ -91,7 +92,14 @@ customElements.define(NasaImage.tag, NasaImage);
 - Let's add CSS variables for height / width
 - Let's add support for lazy loading the image (Google search)
 
-### Meme's we love them
+### JSON output
+- Now let's look through the JSON Response from NASA to see how we can wire this all up
+- https://images-api.nasa.gov/search?q=apollo%2011&media_type=image as an example
+- Where's the 'image' we'll render?
+- How would we obtain "alt" data?
+- What are some fields we can add on our `nasa-image` element to match the API?
+
+### Meme's we love them, especially when we didn't make them
 Let's wire our data up to someone else's (mine) tag: meme-maker
 - Read docs on how to use and install https://haxapi.vercel.app/?path=/story/media-memes--basic-meme
 - Install the element
@@ -105,6 +113,10 @@ Let's wire up a different library called shoelace. https://shoelace.style/compon
 import "@shoelace-style/shoelace/dist/components/carousel/carousel.js";
 import "@shoelace-style/shoelace/dist/components/carousel-item/carousel-item.js";
 ```
+- Read the docs for carousel and see if you can figure out how to wire it into the template to modify the work we've done!
+
+## I want more
+https://github.com/elmsln/lrnwebcomponents is a massive monorepo of elements that the HAX team has been working on for years to transform education, publishing and the web. I am always looking for students to do independent study work to learn how to build advanced web components by contributing to our efforts. One brick at a time we will build a better world.
 
 ## Tooling configs
 

@@ -15,6 +15,19 @@ export class WcWorkshop extends LitElement {
       :host {
         display: block;
       }
+      :host([loading]) .results {
+        opacity: 0.1;
+        visibility: hidden;
+        height: 1px;
+      }
+      .results {
+        visibility: visible;
+        height: 100%;
+        opacity: 1;
+        transition-delay: .5s;
+        transition: .5s all ease-in-out;
+      }
+
       details {
         margin: 16px;
         padding: 16px;
@@ -35,7 +48,7 @@ export class WcWorkshop extends LitElement {
   constructor() {
     super();
     this.value = null;
-    this.title = 'My (awesome) Workshop';
+    this.title = '';
     this.loading = false;
     this.items = [];
   }
@@ -67,6 +80,13 @@ export class WcWorkshop extends LitElement {
     // see if value changes from user input and is not empty
     if (changedProperties.has('value') && this.value) {
       this.updateResults(this.value);
+    }
+    else if (changedProperties.has('value') && !this.value) {
+      this.items = [];
+    }
+    // @debugging purposes only
+    if (changedProperties.has('items') && this.items.length > 0) {
+      console.log(this.items);
     }
   }
 
