@@ -10,48 +10,51 @@
 We're going to learn a bit about how to build and deploy Lit based web components using vercel and open-wc. To participate, do the following:
 
 - Get a github.com account - install https://desktop.github.com or have git installed on machine
-- Get a vercel.com account - and connect it to your github.com account
+- Get a https://vercel.com account - and connect it to your github.com account
 - Install VSCode - https://code.visualstudio.com/
 - Install Chrome or Firefox (Safari is less ideal for console debugging)
 - Install the following VSCode extensions - `lit-html` and `lit-plugin`
 - Install the latest LTS version of Node (20.9.0 as of writing) - https://nodejs.org/
 
+### Note:
 This repo was made using Open-wc tooling. You can learn more about open-wc and how it can help you build Lit based web components at https://open-wc.org/ or run `npm init @open-wc` after installing node/npm in order to build a new web component based application like the one in this workshop!
 
-## Workshop tasks
+# Workshop tasks
 - Deck to start out: https://docs.google.com/presentation/d/1eOxHi0yTPQNiPP_GS1IiR3fCpW_8fChchBJ9cEqE5Ds/edit?usp=sharing
 - Let's check out Lit.dev and a component example to understand what we'll be working on
   - Full component - https://lit.dev/playground/#sample=examples/full-component
 - Create a new repo using this one as the template. Name your repo `wc-workshop`.
-- Clone this code locally on your machine
+- Clone this code locally on your machine with Git using `git` commandline or the desktop app
 - Open the code in VSCode, and open a terminal in VSCode at the project root
 - Run `npm install` to install dependencies
-- Run `npm run start` to begin working on the code. You now have a live running web development environment where changes to the code in the repo will automatically reload the website.
+- Run `npm run start` to begin working on the code.
 
-### Optimal working setup
+You now have a live running web development environment where changes to the code in the repo will automatically reload the website!
+
+## Optimal working setup
 - Open VSCode in a 50% wide window
 - Open live updating environment in browser
 - Right click anywhere on website running in browser and hit Inspect
 - Keep the console data open below your site running so you can see errors as they happen
 - Edit code in VSCode and hit Save (Control + S) to see update in browser
 
-## Background on my work and worldview
-- With the right tools, you can build anything - https://www.youtube.com/watch?v=G5yEgFIxzl0
-- HAXTheWeb Youtube channel - https://www.youtube.com/@haxtheweb
-
-## Play with my work to understand why this is relevant
-Web components are used by companies big and small and are the future of the web. I would argue that they will eat the web as we knew it but that's a story for a different time. For now, let's play
-- https://hax.psu.edu (production) - HAXcms + Microsoft Login = micro-site factory
-- https://hax.cloud (experimental)
-- https://haxapi.vercel.app/?path=/story/about-getting-started--using-penn-state-cdn use our assets anywhere
-- https://github.com/elmsln/haxcms - platform that hax.psu is running if you want to self host later on
-
 ## What you have when you get started with this repo
-- Open-wc boilerplate + vercel API structure + my modifications
+- Open-wc boilerplate + my modifications
 - A search box that when typing you see image result data from NASA image search API
+- Let's step through the code to understand how it's working
+
+### JSON output
+- Now let's look through the JSON Response from NASA to see how we can wire this all up
+- https://images-api.nasa.gov/search?q=apollo%2011&media_type=image as an example
+- Where's the 'image' we'll render?
+- How would we obtain "alt" data?
+- What are some fields we can add on our `nasa-image` element to match the API?
 
 ### What we'll build on top of this
 - Modifying the data to output a listing of images instead of text names
+- Let's pull the image location out of this data feed
+- Let's wire the image location up to an `img` tag
+- Let's add a class called `image` and some CSS to style it and present the title of the image
 - Let's create a new component called `nasa-image` in a file called `src/nasa-image.js`
 ```js
 import { LitElement, html, css } from "lit";
@@ -85,6 +88,7 @@ export class NasaImage extends LitElement {
 }
 customElements.define(NasaImage.tag, NasaImage);
 ```
+### Let's refactor, because we just made some structure
 - Let's reference this new tag for use in our `wc-workshop` app
 - Let's add support for image source via a property
 - Let's add support for alt data
@@ -92,13 +96,6 @@ customElements.define(NasaImage.tag, NasaImage);
 - Let's do some minor CSS styling
 - Let's add CSS variables for height / width
 - Let's add support for lazy loading the image (Google search)
-
-### JSON output
-- Now let's look through the JSON Response from NASA to see how we can wire this all up
-- https://images-api.nasa.gov/search?q=apollo%2011&media_type=image as an example
-- Where's the 'image' we'll render?
-- How would we obtain "alt" data?
-- What are some fields we can add on our `nasa-image` element to match the API?
 
 ## Let's build this using vercel
 - Commit your changes `git add -A` then `git commit -m "working app"`
@@ -108,6 +105,10 @@ customElements.define(NasaImage.tag, NasaImage);
 - Select the `wc-workshop` project you've been working on
 - When setting this up click `Build and Output Settings` and change `Output Directory` to say `dist`
 - Hit Deploy and see if it works.. In a few minutes you should have a web address for what we've worked on today that you can share with others!
+
+
+# Bonus work
+If we have time, we'll get into using other work and standing on the shoulders of giants!
 
 ### Meme's we love them, especially when we didn't make them
 Let's wire our data up to someone else's (mine) tag: meme-maker
