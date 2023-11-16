@@ -19,6 +19,7 @@ We're going to learn a bit about how to build and deploy Lit based web component
 This repo was made using Open-wc tooling. You can learn more about open-wc and how it can help you build Lit based web components at https://open-wc.org/ or run `npm init @open-wc` after installing node/npm in order to build a new web component based application like the one in this workshop!
 
 ## Workshop tasks
+- Deck to start out: https://docs.google.com/presentation/d/1eOxHi0yTPQNiPP_GS1IiR3fCpW_8fChchBJ9cEqE5Ds/edit?usp=sharing
 - Let's check out Lit.dev and a component example to understand what we'll be working on
   - Full component - https://lit.dev/playground/#sample=examples/full-component
 - Create a new repo using this one as the template. Name your repo `wc-workshop`.
@@ -99,6 +100,15 @@ customElements.define(NasaImage.tag, NasaImage);
 - How would we obtain "alt" data?
 - What are some fields we can add on our `nasa-image` element to match the API?
 
+## Let's build this using vercel
+- Commit your changes `git add -A` then `git commit -m "working app"`
+- Push your code you've been working on up to github either using the desktop GUI or commandline `git push origin main`
+- go to https://vercel.com/ and connect this to your github account if you haven't already
+- Select `Add New...` -> `Project`
+- Select the `wc-workshop` project you've been working on
+- When setting this up click `Build and Output Settings` and change `Output Directory` to say `dist`
+- Hit Deploy and see if it works.. In a few minutes you should have a web address for what we've worked on today that you can share with others!
+
 ### Meme's we love them, especially when we didn't make them
 Let's wire our data up to someone else's (mine) tag: meme-maker
 - Read docs on how to use and install https://haxapi.vercel.app/?path=/story/media-memes--basic-meme
@@ -114,16 +124,6 @@ import "@shoelace-style/shoelace/dist/components/carousel/carousel.js";
 import "@shoelace-style/shoelace/dist/components/carousel-item/carousel-item.js";
 ```
 - Read the docs for carousel and see if you can figure out how to wire it into the template to modify the work we've done!
-
-
-## Let's build this using vercel
-- Commit your changes `git add -A` then `git commit -m "working app"`
-- Push your code you've been working on up to github either using the desktop GUI or commandline `git push origin main`
-- go to https://vercel.com/ and connect this to your github account if you haven't already
-- Select `Add New...` -> `Project`
-- Select the `wc-workshop` project you've been working on
-- When setting this up click `Build and Output Settings` and change `Output Directory` to say `dist`
-- Hit Deploy and see if it works.. In a few minutes you should have a web address for what we've worked on today that you can share with others!
 
 ## I want more
 https://github.com/elmsln/lrnwebcomponents is a massive monorepo of elements that the HAX team has been working on for years to transform education, publishing and the web. I am always looking for students to do independent study work to learn how to build advanced web components by contributing to our efforts. One brick at a time we will build a better world.
