@@ -20,7 +20,20 @@ We're going to learn a bit about how to build and deploy Lit based web component
 This repo was made using Open-wc tooling. You can learn more about open-wc and how it can help you build Lit based web components at https://open-wc.org/ or run `npm init @open-wc` after installing node/npm in order to build a new web component based application like the one in this workshop!
 
 # Workshop tasks
+- Mark yourself as attending for club / my purposes of knowing #s - https://docs.google.com/forms/d/e/1FAIpQLScin6DiAYJSDLq8hw-0QxQqZOmxfAQa0moGTzvXYLUHyA_fXA/viewform?pli=1
 - Deck to start out: https://docs.google.com/presentation/d/1eOxHi0yTPQNiPP_GS1IiR3fCpW_8fChchBJ9cEqE5Ds/edit?usp=sharing
+
+## Browser 101 / shameless plug
+- Let's make a site quickly on hax.psu.edu to look at web components - https://hax.psu.edu
+- Make a course with any topic name
+- Hit edit on a page, then Add blocks at the top and add a few blocks.
+- Save the pagee
+- Right click on an element and Inspect
+- This developer panel will tell you what HTML element is selected and the CSS associated with it
+- `Console` allows  you to manipulate things via JavaScript
+- Congrats, you have used the worlds first entirely web component based Content Management System
+
+## Lit.dev for a working component environment
 - Let's check out Lit.dev and a component example to understand what we'll be working on
   - Full component - https://lit.dev/playground/#sample=examples/full-component
 - Create a new repo using this one as the template. Name your repo `wc-workshop`.
@@ -39,7 +52,7 @@ You now have a live running web development environment where changes to the cod
 - Edit code in VSCode and hit Save (Control + S) to see update in browser
 
 ## What you have when you get started with this repo
-- Open-wc boilerplate + my modifications
+- Open-wc boilerplate (https://open-wc.org/) + my modifications to streamline this workshop
 - A search box that when typing you see image result data from NASA image search API
 - Let's step through the code to understand how it's working
 
